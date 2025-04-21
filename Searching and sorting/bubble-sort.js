@@ -42,3 +42,6 @@ function bubble_sort(arr) {
 console.log(bubble_sort(arr));
 const s = new Sorting;
 console.log(s.binary_search(arr, x));
+
+//time complexity: O(N^2) for worst case and average case
+//best case is O(N)
