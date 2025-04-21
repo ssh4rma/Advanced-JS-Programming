@@ -16,3 +16,13 @@ for(let i = 0; i < n - 1; ++i) {
 }
 
 console.log(arr);
+
+for(let i = 0; i < n; ++i) {
+  for(let j = 0; j < n; ++j) {
+    if(arr[j] < arr[i]) {
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+}
+
+console.log(arr);
