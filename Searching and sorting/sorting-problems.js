@@ -62,3 +62,33 @@ const arr = [
   { id: 2 }
 ];
 console.log(insertionSort(arr));
+
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+function merge(left, right) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+  while (i < left.length && j < right.length) {
+    if (left[i].id <= right[j].id) {
+      result.push(left[i]);
+      i++;
+    } else {
+      result.push(right[j]);
+      j++;
+    }
+  }
+  return result.concat(left.slice(i)).concat(right.slice(j));
+}
+const arr = [
+  { id: 6 },
+  { id: 2 },
+  {},
+  { id: 4 }
+];
+console.log(mergeSort(arr));
