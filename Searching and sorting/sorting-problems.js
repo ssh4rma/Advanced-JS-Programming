@@ -41,3 +41,24 @@ const arr = [
   { id: 1 }
 ];
 console.log(selectionSort(arr));
+
+//insertion sort
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let key = arr[i];
+    let j = i - 1;
+    while (j >= 0 && arr[j].id > key.id) {
+      arr[j + 1] = arr[j];
+      j--;
+    }
+    arr[j + 1] = key;
+  }
+  return arr;
+}
+const arr = [
+  { id: 5 },
+  { id: 3 },
+  {},
+  { id: 2 }
+];
+console.log(insertionSort(arr));
