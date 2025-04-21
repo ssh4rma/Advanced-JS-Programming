@@ -92,3 +92,26 @@ const arr = [
   { id: 4 }
 ];
 console.log(mergeSort(arr));
+
+//quick sort
+function quickSort(arr) {
+  if (arr.length <= 1) return arr;
+  let pivot = arr[0];
+  let left = [];
+  let right = [];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].id < pivot.id) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+const arr = [
+  { id: 7 },
+  { id: 3 },
+  {},
+  { id: 1 }
+];
+console.log(quickSort(arr));
