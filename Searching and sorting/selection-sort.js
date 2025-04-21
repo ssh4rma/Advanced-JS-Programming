@@ -1,4 +1,4 @@
-let arr = [12, 11, 13, 5, 6];
+let arr = [12, 11, 13, 5, 6, 1, 100];
 let n = arr.length;
 
 for(let i = 0; i < n - 1; ++i) {
@@ -9,7 +9,7 @@ for(let i = 0; i < n - 1; ++i) {
     }
   }
 
-  if(min_idx === i) continue;
+  if(min_idx === i) break;
   else {
     [arr[i], arr[min_idx]] = [arr[min_idx], arr[i]];
   }
