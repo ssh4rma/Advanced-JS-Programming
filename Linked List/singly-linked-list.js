@@ -8,7 +8,7 @@ class Node {
 // console.log(head); //this will return an object and then I can acess the value of head and next pointer in that
 
 
-function prepend (head, val) {
+function append (head, val) {
   let newNode = new Node(val);
   if(!head) {
     this.head = newNode;
@@ -29,12 +29,20 @@ function printList(head) {
   }
 }
 
-const head = new Node(1);
+function prepend(head, val) {
+  const newNode = new Node(val);
+  newNode.next = head;
+  return newNode;
+}
 
-prepend(head, 2);
-prepend(head, 3);
-prepend(head, 4);
-prepend(head, 5);
-prepend(head, 6);
-prepend(head, 7);
+let head = new Node(1);
+
+append(head, 2);
+append(head, 3);
+append(head, 4);
+append(head, 5);
+append(head, 6);
+append(head, 7);
+
+head = prepend(head, 0);
 printList(head);
