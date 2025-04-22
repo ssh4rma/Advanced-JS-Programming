@@ -60,6 +60,17 @@ function insertAtPosi(head, val, posi) {
   return head;
 }
 
+function deleteFirstNode(head) {
+  let temp = head;
+
+  do {
+    temp = temp.next;
+  } while(temp.next !== head);
+
+  temp.next = head.next; 
+  return head.next;
+}
+
 function printList(head) {
   if (!head) return;
 
@@ -81,5 +92,7 @@ head = insertAtStart(head, 6);
 head = insertAtEnd(head, 100); 
 
 head = insertAtPosi(head, 200, 4);
+
+head = deleteFirstNode(head);
 
 printList(head);
