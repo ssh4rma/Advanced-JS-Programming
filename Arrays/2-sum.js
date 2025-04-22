@@ -13,3 +13,18 @@ for(let i = 0; i < n - 1; ++i) {
     }
   }
 }
+
+//method: 2
+let mpp = new Map();
+
+for(let i = 0; i < arr.length; ++i) {
+  if(mpp.has(arr[i])) continue;
+  else mpp.set(arr[i], i);
+}
+
+mpp.forEach((val, key) => {
+  let t = mpp.get(target - key);
+  if(t !== undefined) {
+    console.log([val, t]); 
+  }
+})
