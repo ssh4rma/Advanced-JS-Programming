@@ -113,6 +113,19 @@ function deleteFromPosi(head, posi) {
   return head;
 }
 
+function serachElement(head, target) {
+  if(!head) return false;
+
+  let temp = head;
+
+  do {
+    if(temp.val === target) return true;
+    temp = temp.next; 
+  } while(temp.next !== head);
+
+  return false;
+}
+
 let head = new Node(1);
 head.next = head;
 head.prev = head;
@@ -132,5 +145,7 @@ head = deleteFromStart(head);
 head = deleteFromEnd(head);
 
 head = deleteFromPosi(head, 4);
+
+console.log(serachElement(head, 3));
 
 printList(head); 
