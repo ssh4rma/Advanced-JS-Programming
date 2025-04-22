@@ -23,6 +23,26 @@ function insertAtStart(head, val) {
   return newNode;
 }
 
+function insertAtEnd(head, val) {
+  const newNode = new Node(val);
+
+  if(head.next === head) {
+    head.next = newNode;
+    newNode.next = head;
+    return head;
+  }
+
+  let temp = head; 
+  do {
+    temp = temp.next;
+  } while(temp.next !== head); 
+
+  temp.next = newNode;
+  newNode.next = head;
+
+  return head; 
+}
+
 function printList(head) {
   if (!head) return;
 
@@ -41,5 +61,6 @@ head = insertAtStart(head, 3);
 head = insertAtStart(head, 4);
 head = insertAtStart(head, 5);
 head = insertAtStart(head, 6);
+head = insertAtEnd(head, 100); 
 
 printList(head);
