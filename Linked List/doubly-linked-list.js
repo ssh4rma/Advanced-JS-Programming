@@ -76,6 +76,26 @@ function serarchNode(head, val) {
   return false;
 }
 
+function insertAtPosi(head, posi, val) {
+  if(!head) return null;
+
+  let temp = head;
+  for(let i = 1; i <= posi - 1; ++i) {
+    temp = temp.next; 
+  }
+
+  let newNode = new Node(val);
+  
+  newNode.next = temp.next;
+  newNode.prev = temp;
+  temp.next = newNode; 
+  if(newNode.next) {
+    newNode.next.prev = newNode;
+  }
+
+  return head;
+}
+
 let head = new Node(7); 
 head = insertAtStart(head, 6);
 head = insertAtStart(head, 5);
@@ -87,4 +107,6 @@ head = insertAtStart(head, 1);
 head = insertAtEnd(head, 0);
 
 head = deleteNode(head, 4);
+
+head = insertAtPosi(head, 2, 100);
 printList(head);
