@@ -65,6 +65,17 @@ function deleteNode(head, val) {
   return head;
 }
 
+function serarchNode(head, val) {
+  let temp = head;
+
+  while(temp) {
+    if(temp.val === val) return true;
+    temp = temp.next;
+  }
+
+  return false;
+}
+
 let head = new Node(7); 
 head = insertAtStart(head, 6);
 head = insertAtStart(head, 5);
