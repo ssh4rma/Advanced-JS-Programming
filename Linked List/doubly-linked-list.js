@@ -14,7 +14,14 @@ function insertAtStart(head, val) {
   return newNode;
 }
 
+function printList(head) {
+  let temp = head;
 
+  while(temp) {
+    console.log(temp.val);
+    temp = temp.next;
+  }
+}
 
 let head = new Node(7); 
 head = insertAtStart(head, 6);
