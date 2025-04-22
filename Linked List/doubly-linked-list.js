@@ -11,6 +11,7 @@ function insertAtStart(head, val) {
   if(!head) return newNode;
 
   newNode.next = head; 
+  head.prev = newNode;
   return newNode;
 }
 
@@ -24,6 +25,7 @@ function insertAtEnd(head, val) {
   }
 
   temp.next = newNode;
+  newNode.prev = temp; 
   return head;
 }
 
@@ -36,6 +38,33 @@ function printList(head) {
   }
 } 
 
+function deleteNode(head, val) {
+  if(!head) return null; 
+
+  if(head.val === val) {
+    let newHead = head.next;
+    if(newHead) {
+      newHead.prev = null;
+    }
+    return newHead;
+  }
+
+  let temp = head;
+  while(temp) {
+    if(temp.val === val) {
+      if(temp.next) {
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+      } else {
+        temp.prev.next = null;
+      }
+      break; 
+    }
+    temp = temp.next;
+  }
+  return head;
+}
+
 let head = new Node(7); 
 head = insertAtStart(head, 6);
 head = insertAtStart(head, 5);
@@ -46,4 +75,5 @@ head = insertAtStart(head, 1);
 
 head = insertAtEnd(head, 0);
 
+head = deleteNode(head, 4);
 printList(head);
