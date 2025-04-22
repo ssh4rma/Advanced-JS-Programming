@@ -43,6 +43,23 @@ function insertAtEnd(head, val) {
   return head; 
 }
 
+function insertAtPosi(head, val, posi) {
+  const newNode = new Node(val);
+  if(posi === 0) {
+    return insertAtStart(head, val);
+  }
+
+  let temp = head;
+  for(let i = 1; i <= posi - 1; ++i) {
+    temp = temp.next;
+  }
+
+  newNode.next = temp.next;
+  temp.next = newNode;
+
+  return head;
+}
+
 function printList(head) {
   if (!head) return;
 
@@ -62,5 +79,7 @@ head = insertAtStart(head, 4);
 head = insertAtStart(head, 5);
 head = insertAtStart(head, 6);
 head = insertAtEnd(head, 100); 
+
+head = insertAtPosi(head, 200, 4);
 
 printList(head);
