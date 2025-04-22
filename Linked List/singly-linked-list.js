@@ -54,6 +54,16 @@ function deleteNode(head, val) {
   return head; 
 }
 
+function search(head, val) {
+  let temp = head;
+
+  while(temp) {
+    if(temp.val === val) return true;
+    temp = temp.next;
+  }
+  return false;
+}
+
 let head = new Node(1);
 
 append(head, 2);
@@ -65,4 +75,6 @@ append(head, 7);
 
 head = prepend(head, 0);
 head = deleteNode(head, 7);
+
 printList(head);
+console.log(search(10));
