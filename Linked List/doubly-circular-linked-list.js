@@ -83,6 +83,8 @@ function deleteFromStart(head) {
 }
 
 function deleteFromEnd(head) {
+  if(!head) return null;
+
   let tail = head.prev;
 
   let target = tail.prev;
@@ -92,6 +94,21 @@ function deleteFromEnd(head) {
 
   target.next = head;
   head.prev = target; 
+
+  return head;
+}
+
+function deleteFromPosi(head, posi) {
+  if(!head) return null;
+
+  let temp = head;
+
+  for(let i = 1; i <= posi; ++i) {
+    temp = temp.next;
+  }
+
+  temp.prev.next = temp.next;
+  temp.next.prev = temp.prev;
 
   return head;
 }
@@ -109,7 +126,11 @@ head = insertAtStart(head, 6);
 head = insertAtEnd(head, 100);
 
 head = insertAtPosi(head, 2000, 5);
+
 head = deleteFromStart(head);
 
 head = deleteFromEnd(head);
+
+head = deleteFromPosi(head, 4);
+
 printList(head); 
