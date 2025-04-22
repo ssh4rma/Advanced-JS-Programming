@@ -4,33 +4,37 @@ class Node {
     this.next = null;
   }
 }
-const head = new Node(1);
+
 // console.log(head); //this will return an object and then I can acess the value of head and next pointer in that
 
 
-function add_element_at_end(head, val) {
-  let temp = head;
-  while(temp.next) {
-    temp = temp.next;
-  }
-
+function prepend (head, val) {
   let newNode = new Node(val);
-  temp.next = newNode;
-  return head; 
+  if(!head) {
+    this.head = newNode;
+  } else {
+    let temp = head;
+    while(temp.next) {
+      temp = temp.next;
+    }
+    temp.next = newNode;
+  }
 }
 
 function printList(head) {
   let temp = head; 
-  while(temp.next) {
+  while(temp) {
     console.log(temp.val);
     temp = temp.next;
   }
 }
 
+const head = new Node(1);
 
-head.next = new Node(2);
-head.next.next = new Node(3);
-head.next.next.next = new Node(4);
-head.next.next.next.next = new Node(5);
-
+prepend(head, 2);
+prepend(head, 3);
+prepend(head, 4);
+prepend(head, 5);
+prepend(head, 6);
+prepend(head, 7);
 printList(head);
