@@ -80,7 +80,20 @@ function deleteFromStart(head) {
   head.next = null;
 
   return target;
+}
 
+function deleteFromEnd(head) {
+  let tail = head.prev;
+
+  let target = tail.prev;
+
+  tail.next = null;
+  tail.prev = null; 
+
+  target.next = head;
+  head.prev = target; 
+
+  return head;
 }
 
 let head = new Node(1);
@@ -97,4 +110,6 @@ head = insertAtEnd(head, 100);
 
 head = insertAtPosi(head, 2000, 5);
 head = deleteFromStart(head);
+
+head = deleteFromEnd(head);
 printList(head); 
