@@ -23,3 +23,25 @@ function helper(arr) {
 }
 
 console.log(cnt);
+
+//optimal: prefix sum
+
+let opCnt = 0;
+let preSum = 0;
+let mpp = new Map(); 
+
+mpp.set(0, 1);
+
+for(let i of arr) {
+  preSum += i;
+
+  let t = mpp.get(preSum - k);
+  if(t !== undefined) {
+    opCnt += t; 
+  }
+
+  let m = mpp.get(preSum) || 0;
+  mpp.set(preSum, m + 1);
+}
+
+console.log(opCnt);
