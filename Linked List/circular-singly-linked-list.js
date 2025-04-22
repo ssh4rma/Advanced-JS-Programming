@@ -71,6 +71,22 @@ function deleteFirstNode(head) {
   return head.next;
 }
 
+function deleteLastNode(head) {
+  let temp = head;
+
+  let prev = null;
+
+  do {
+    prev = temp;
+    temp = temp.next;
+  } while(temp.next !== head);
+  
+  temp.next = null;
+  prev.next = head;
+  
+  return head; 
+}
+
 function printList(head) {
   if (!head) return;
 
@@ -94,5 +110,6 @@ head = insertAtEnd(head, 100);
 head = insertAtPosi(head, 200, 4);
 
 head = deleteFirstNode(head);
+head = deleteLastNode(head);
 
 printList(head);
