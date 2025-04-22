@@ -35,6 +35,25 @@ function prepend(head, val) {
   return newNode;
 }
 
+function deleteNode(head, val) {
+  if(!head) return;
+
+  if(head.val === val) {
+    return head.next;
+  }
+
+  let temp = head;
+  while(temp.next != null) {
+   if(temp.next.val === val) {
+    temp.next = temp.next.next;
+    break;
+   }
+   temp = temp.next;
+  }
+
+  return head; 
+}
+
 let head = new Node(1);
 
 append(head, 2);
@@ -45,4 +64,5 @@ append(head, 6);
 append(head, 7);
 
 head = prepend(head, 0);
+head = deleteNode(head, 7);
 printList(head);
