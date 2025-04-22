@@ -14,3 +14,16 @@ while(cnt != k) {
 }
 
 console.log(arr);
+
+//method 2: hard coding
+let temp = [];
+
+for(let j = 0; j < k; ++j) {
+  temp.push(arr[j]);
+}
+
+for(let j = n - 1; j >= k; --j) {
+  temp.unshift(arr[j]);
+}
+
+console.log(temp);
