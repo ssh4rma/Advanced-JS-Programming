@@ -1,4 +1,4 @@
-let arr = [5, 3, 8, 1, 9];
+let arr = [5, 3, 8, 1, 9, 9];
 
 let mx = Number.MIN_SAFE_INTEGER;
 
@@ -14,3 +14,17 @@ for(let i of arr) {
 }
 
 console.log(res); 
+
+//method 2:
+let snd_mx = Number.MIN_SAFE_INTEGER;
+
+for(let i of arr) {
+  if(i > mx) {
+    snd_mx = mx;
+    mx = i;
+  } else if(i > snd_mx && i != mx) {
+    snd_mx = i; 
+  }
+}
+
+console.log(snd_mx);
