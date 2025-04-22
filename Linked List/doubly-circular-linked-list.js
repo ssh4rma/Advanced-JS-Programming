@@ -63,6 +63,26 @@ function insertAtPosi(head, val, posi) {
   return head;
 }
 
+function deleteFromStart(head) {
+  let tail = head.prev;
+  if(!head) return;
+
+  if(head.next === head) {
+    return null; 
+  }
+
+  let target = head.next;
+
+  tail.next = target;
+  target.prev = tail;
+  
+  head.prev = null;
+  head.next = null;
+
+  return target;
+
+}
+
 let head = new Node(1);
 head.next = head;
 head.prev = head;
@@ -76,5 +96,5 @@ head = insertAtStart(head, 6);
 head = insertAtEnd(head, 100);
 
 head = insertAtPosi(head, 2000, 5);
-
+head = deleteFromStart(head);
 printList(head); 
