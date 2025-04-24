@@ -6,16 +6,28 @@ class TreeNode {
   }
 }
 
-function helper(root, res) {
+function preHelper(root, res) {
   if(root === null) return;
   res.push(root.val);
-  helper(root.left, res);
-  helper(root.right, res);  
+  preHelper(root.left, res);
+  preHelper(root.right, res);  
 }
 
 function preorder(root) {
   let res = [];
-  helper(root, res);
+  preHelper(root, res);
+  return res;
+}
+
+function postHelper(root, res) {
+  if(!root) return;
+  postHelper(root.left, res);
+  postHelper(root.right, res);
+  res.push(root.val);
+}
+function postorder(root) {
+  let res = [];
+  postHelper(root, res); 
   return res;
 }
 
@@ -28,4 +40,5 @@ root.right.left = new TreeNode(6);
 root.right.right = new TreeNode(7);
 
 console.log(preorder(root));
+console.log(postorder(root));
 
