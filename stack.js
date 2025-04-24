@@ -51,3 +51,14 @@ class Stack {
     }
   }
 }
+
+let head = new Node(1);
+const st = new Stack();
+head = st.pushElement(head, 1);
+head = st.pushElement(head, 2);
+head = st.pushElement(head, 3);
+head = st.pushElement(head, 4);
+head = st.pushElement(head, 5);
+head = st.pushElement(head, 6);
+
+console.log(`Top element is ${st.peek(head)}`); // Top element is 6
