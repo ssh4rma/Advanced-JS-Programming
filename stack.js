@@ -26,4 +26,15 @@ class Stack {
     if(!head) return -1;
     return head.val;
   }
+
+  sizeOfStack(head) {
+    if(!head) return -1;
+    let cnt = 0;
+    let temp = head;
+    while(temp.next) {
+      cnt += 1;
+      temp = temp.next; 
+    }
+    return cnt;
+  }
 }
