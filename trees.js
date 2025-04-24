@@ -31,6 +31,19 @@ function postorder(root) {
   return res;
 }
 
+function inHelper(root, res) {
+  if(!root) return;
+  inHelper(root.left, res);
+  res.push(root.val); 
+  inHelper(root.right, res);
+}
+
+function inorder(root) {
+  let res = []
+  inHelper(root, res); 
+  return res; 
+}
+
 const root = new TreeNode(1);
 root.left = new TreeNode(2);
 root.right = new TreeNode(3); 
@@ -41,4 +54,4 @@ root.right.right = new TreeNode(7);
 
 console.log(preorder(root));
 console.log(postorder(root));
-
+console.log(inorder(root)); 
