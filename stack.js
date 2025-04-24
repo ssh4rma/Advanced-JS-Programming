@@ -21,4 +21,9 @@ class Stack {
     if(!head.next || !head) return null; 
     return head.next;
   }
+
+  peek(head) {
+    if(!head) return -1;
+    return head.val;
+  }
 }
