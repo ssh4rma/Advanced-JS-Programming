@@ -54,4 +54,14 @@ class Queue {
       temp = temp.next;
     }
   }
+
+  sizeOfQ() {
+    let n = 0;
+    let temp = this.head;
+    while(temp) {
+      n += 1; 
+      temp = temp.next;
+    }
+    return n;
+  }
 }
