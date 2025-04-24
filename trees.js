@@ -44,6 +44,20 @@ function inorder(root) {
   return res; 
 }
 
+function search(root, target) {
+  if(!root) return false;
+  if(root.val === target) return true;
+  return (search(root.left, target) || search(root.right, target));
+}
+
+function findMinNode(root, res) {
+  if(!root) return;
+  res = Math.min(res, root.val);
+  findMinNode(root.left, res);
+  findMinNode(root.right, res);
+  return res; 
+}
+
 const root = new TreeNode(1);
 root.left = new TreeNode(2);
 root.right = new TreeNode(3); 
@@ -55,3 +69,8 @@ root.right.right = new TreeNode(7);
 console.log(preorder(root));
 console.log(postorder(root));
 console.log(inorder(root)); 
+
+console.log(search(root,5));
+
+let res = 1000;
+console.log(findMinNode(root, res));
