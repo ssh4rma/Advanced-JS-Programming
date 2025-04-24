@@ -11,4 +11,4 @@ mp.forEach((val, key) => {
 const st = new Set(); 
 for(let i of arr) st.add(i);
 
-for(i of st) console.log(i);
+for(let i of st) console.log(i);
