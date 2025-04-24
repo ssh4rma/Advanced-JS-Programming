@@ -26,4 +26,9 @@ class Queue {
     
     return this.head;
   }
+
+  dq() {
+    if(!this.head) return null;
+    return this.head.next; 
+  }
 }
