@@ -41,4 +41,13 @@ class Stack {
   isEmpty(head) {
     return head === null;
   }
+
+  printStack(head) {
+    if(!head) return;
+    let temp = head;
+    while(temp.next) {
+      console.log(temp.val);
+      temp = temp.next;
+    }
+  }
 }
