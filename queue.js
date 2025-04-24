@@ -31,4 +31,9 @@ class Queue {
     if(!this.head) return null;
     return this.head.next; 
   }
+
+  peek() {
+    if(!this.head) return -1;
+    return this.head.val;
+  }
 }
