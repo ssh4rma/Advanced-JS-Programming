@@ -32,8 +32,18 @@ class Queue {
     return this.head.next; 
   }
 
-  peek() {
+  front() {
     if(!this.head) return -1;
     return this.head.val;
+  }
+
+  rear() {
+    if(!this.head) return -1;
+    let temp = this.head;
+    while(temp.next) {
+      temp = temp.next; 
+    }
+
+    return temp.val;
   }
 }
