@@ -37,4 +37,8 @@ class Stack {
     }
     return cnt;
   }
+
+  isEmpty(head) {
+    return head === null;
+  }
 }
