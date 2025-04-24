@@ -82,3 +82,6 @@ for(let i of stack) console.log(i); // 1, 2, 3, 4, 5
 
 stack.shift(); //will pop the first element from the stack
 for(let i of stack) console.log(i); // 2, 3, 4, 5
+
+
+console.log(`Stack is ${stack.length === 0 ? 'empty' : 'not empty'}`);
