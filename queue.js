@@ -65,3 +65,17 @@ class Queue {
     return n;
   }
 }
+
+
+let q = new Queue();
+q.enq(1);
+q.enq(2);
+q.enq(3);
+q.enq(4);
+q.enq(5);
+
+q.dq();
+q.dq();
+
+console.log('size of the queue is:', q.sizeOfQ());
+q.printQ();
