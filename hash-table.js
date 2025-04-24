@@ -7,3 +7,8 @@ for(let i of arr) mp.set(i, (mp.get(i) || 0) + 1);
 mp.forEach((val, key) => {
   console.log(`Key: ${key} has frequency of ${val}`);
 })
+
+const st = new Set(); 
+for(let i of arr) st.add(i);
+
+for(i of st) console.log(i);
