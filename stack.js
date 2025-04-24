@@ -17,4 +17,8 @@ class Stack {
     return newNode;    
   }
 
+  popElement(head) {
+    if(!head.next || !head) return null; 
+    return head.next;
+  }
 }
