@@ -69,7 +69,7 @@ console.log(`Stack is ${st.isEmpty(head) === false ? 'Not empty' : 'empty'}`);
 
 const stack = [];
 
-
+//push the element in the stack
 stack.unshift(5);
 stack.unshift(4);
 stack.unshift(3);
@@ -77,3 +77,8 @@ stack.unshift(2);
 stack.unshift(1);
 
 for(let i of stack) console.log(i); // 1, 2, 3, 4, 5
+
+//pop the element from the stack
+
+stack.shift(); //will pop the first element from the stack
+for(let i of stack) console.log(i); // 2, 3, 4, 5
