@@ -17,3 +17,25 @@ for(let i = 1; i <= n; ++i) {
 }
 
 console.log(mx); 
+
+//method 2:
+let res = -1;
+function helper(arr) {
+  let mx = -1;
+
+  for(let i of arr) {
+    mx = Math.max(mx, i);
+  }
+
+  return mx;
+}
+
+let temp = [...arr];
+
+for(let i = 1; i <= n; ++i) {
+  let mx = helper(arr);
+  res = mx;
+  temp = temp.filter((val) => val !== mx);
+}
+
+console.log(res);
