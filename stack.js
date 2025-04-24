@@ -62,3 +62,4 @@ head = st.pushElement(head, 5);
 head = st.pushElement(head, 6);
 
 console.log(`Top element is ${st.peek(head)}`); // Top element is 6
+console.log(`Stack is ${st.isEmpty(head) === false ? 'Not empty' : 'empty'}`);
