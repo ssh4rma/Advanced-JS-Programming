@@ -63,3 +63,17 @@ head = st.pushElement(head, 6);
 
 console.log(`Top element is ${st.peek(head)}`); // Top element is 6
 console.log(`Stack is ${st.isEmpty(head) === false ? 'Not empty' : 'empty'}`);
+
+
+//Stack using array: As stack follows LIFO operation: we will push and pop from the front of the array
+
+const stack = [];
+
+
+stack.unshift(5);
+stack.unshift(4);
+stack.unshift(3);
+stack.unshift(2);
+stack.unshift(1);
+
+for(let i of stack) console.log(i); // 1, 2, 3, 4, 5
