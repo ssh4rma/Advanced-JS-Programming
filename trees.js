@@ -70,6 +70,48 @@ function findMinNode(root, res) {
   return res; 
 }
 
+//bfs
+
+class Queue {
+  constructor(arr = []) {
+    this.arr = arr;
+  }
+
+  pushElement(val) {
+    this.arr.push(val);
+  }
+
+  popElement() {
+    return this.arr.shift();
+  }
+
+  sizeOfQ() {
+    return this.arr.length;
+  }
+
+  empty() {
+    return this.arr.length === 0;
+  }
+}
+
+function bfs(root) {
+  if(!root) return [];
+
+  const q = new Queue();
+  q.pushElement(root);
+  let res = [];
+
+  while(!q.empty()) {
+    let node = q.popElement();
+    res.push(node.val);
+
+    if(node.left) q.pushElement(node.left);
+    if(node.right) q.pushElement(node.right); 
+  }
+
+  return res; 
+}
+
 let root = new TreeNode(1);
 root.left = new TreeNode(2);
 root.right = new TreeNode(3); 
@@ -89,3 +131,5 @@ console.log(findMinNode(root, res));
 
 root = insert(root, 8);
 console.log(preorder(root));
+
+console.log(bfs(root));
