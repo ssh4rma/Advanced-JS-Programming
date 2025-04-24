@@ -46,4 +46,12 @@ class Queue {
 
     return temp.val;
   }
+
+  printQ() {
+    let temp = this.head;
+    while(temp) {
+      console.log(temp.val);
+      temp = temp.next;
+    }
+  }
 }
