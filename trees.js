@@ -84,10 +84,51 @@ function dia(root) {
 
     return 1 + Math.max(l, r);
   }
-  
   helper(root);
   return mx;
 }
+
+/*
+there are 3 cases:
+> If the !root.left && !root.right then remove the node
+> If it has only one child, then replace it with it's child
+> If the node has 2 child, then connect the left child of the node to it's parent's new child, and for the right child find it's inorder predecessor (the largest node in the left subtree)
+*/
+
+
+function deleteNode(root, key) {
+  if(!root) return null;
+
+  if(key < root.val) {
+    root.left = deleteNode(root.left, key); 
+  } else if(key > root.val) {
+    root.right = deleteNode(root.right, key);
+  } else {
+    return helper(root);
+  }
+  
+  return root;
+}
+
+function helper(root) {
+  if(!root.right) return root.left;
+  if(!root.left) return root.right;
+
+  let rightChild = root.right;
+  let lastRight = findLastRight(root.left); //find the last right in the left subtree
+  lastRight.right = rightChild;
+  return root.left;
+}
+
+function findLastRight(root) {
+  if(!root) return null;
+  while(root.right) {
+    root = root.right;
+  }
+
+  return root;
+}
+
 
 let root = new TreeNode(1);
 root = insertBST(root, 2);
@@ -105,3 +146,5 @@ console.log(lca(root, root.right, root.right.right));
 console.log(preorder(root));
 
 console.log(dia(root));
+root = deleteNode(root, 4); 
+console.log(preorder(root));
