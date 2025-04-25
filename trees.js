@@ -40,6 +40,16 @@ function maxDepth(root) {
   return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 }
 
+//Lowest common ancestor
+function lca(root, a, b) {
+  if(!root || root === a || root === b) return root;
+  let l = lca(root.left, a, b);
+  let r = lca(root.right, a, b);
+
+  if(l && r) return root;
+  return l || r;
+}
+
 let root = new TreeNode(1);
 root = insertBST(root, 2);
 root = insertBST(root, 3);
@@ -49,3 +59,5 @@ root = insertBST(root, 5);
 console.log(preorder(root));
 
 console.log(maxDepth(root));
+
+console.log(lca(root, root.right, root.right.right));
