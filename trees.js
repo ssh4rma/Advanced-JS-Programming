@@ -33,6 +33,13 @@ function preorder(root) {
   return res; 
 }
 
+//Maximum depth of the binary tree
+
+function maxDepth(root) {
+  if(!root) return 0;
+  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+}
+
 let root = new TreeNode(1);
 root = insertBST(root, 2);
 root = insertBST(root, 3);
@@ -40,3 +47,5 @@ root = insertBST(root, 4);
 root = insertBST(root, 5);
 
 console.log(preorder(root));
+
+console.log(maxDepth(root));
