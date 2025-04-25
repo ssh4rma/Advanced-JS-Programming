@@ -50,6 +50,26 @@ function lca(root, a, b) {
   return l || r;
 }
 
+//Delete a node in BST
+function delNode(root, target) {
+  if(!root) return null;
+  
+  if(root.left && root.left === target) {
+    if(target.left) {
+      root.left = target.left;
+    }
+  } else if(root.right && root.right === target) {
+    if(target.right) {
+      root.right = target.right;
+    }
+  }
+
+  delNode(root.left, target);
+  delNode(root.right, target);
+
+  return root; 
+}
+
 let root = new TreeNode(1);
 root = insertBST(root, 2);
 root = insertBST(root, 3);
@@ -61,3 +81,6 @@ console.log(preorder(root));
 console.log(maxDepth(root));
 
 console.log(lca(root, root.right, root.right.right));
+
+root = delNode(root, root.right);
+console.log(preorder(root));
