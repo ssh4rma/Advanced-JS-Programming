@@ -70,6 +70,25 @@ function delNode(root, target) {
   return root; 
 }
 
+//Diameter of the BST
+function dia(root) {
+  let mx = -Infinity;
+
+  function helper(root) {
+    if(!root) return 0;
+
+    let l = helper(root.left);
+    let r = helper(root.right);
+
+    mx = Math.max(mx, l + r);
+
+    return 1 + Math.max(l, r);
+  }
+  
+  helper(root);
+  return mx;
+}
+
 let root = new TreeNode(1);
 root = insertBST(root, 2);
 root = insertBST(root, 3);
@@ -82,5 +101,7 @@ console.log(maxDepth(root));
 
 console.log(lca(root, root.right, root.right.right));
 
-root = delNode(root, root.right);
+// root = delNode(root, root.right);
 console.log(preorder(root));
+
+console.log(dia(root));
