@@ -101,6 +101,60 @@ function bottomView(root) {
   return res;
 }
 
+//left view
+
+function leftView(root) {
+  let res = [];
+  if(!root) return res;
+
+  const q = [];
+  q.push([root, 0]);
+
+  while(q.length > 0) {
+    let temp = q.shift();
+    let node = temp[0], level = temp[1];
+
+    if(res[level]) res[level].push(node.val);
+    else {
+      let t = [];
+      t.push(node.val);
+      res[level] = t;
+    }
+
+    if(node.left) q.push([node.left, level + 1]);
+    if(node.right) q.push([node.right, level + 1]);
+  } 
+
+  let leftRes = [];
+  for(let i = 0; i < res.length; ++i) {
+    leftRes.push(res[i][0]);
+  }
+
+  return leftRes;
+
+  //leftView(root) { //alternate approach
+//     let res = [];
+//     if(!root) return res;
+    
+//     const q = [];
+//     q.push([root, 0]);
+    
+//     while(q.length > 0) {
+//         const [node, level] = q.shift();
+//         // let node = temp[0], level = temp[1]; 
+        
+//         if(res.length === level) {
+//             res.push(node.val);
+//         }
+        
+//         if(node.left) q.push([node.left, level + 1]);
+//         if(node.right) q.push([node.right, level + 1]);
+//     }
+    
+//     return res; 
+// }
+}
+
 let root = new TreeNode(6);
 root = insertNode(root, 4);
 root = insertNode(root, 5);
@@ -111,3 +165,4 @@ root = insertNode(root, 8);
 // console.log(preorder(root));
 console.log(topView(root));
 console.log(bottomView(root));
+console.log(leftView(root));
