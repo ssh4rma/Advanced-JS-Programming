@@ -67,6 +67,39 @@ function topView(root) {
   return res;
 }
 
+function bottomView(root) {
+  if(!root) return [];
+  const q = [];
+  q.push([0, root]);
+
+  const mp = new Map();
+
+  while(q.length > 0) {
+    let temp = q.shift();
+
+    let hd = temp[0];
+    let node = temp[1];
+
+    if(mp.has(hd)) {
+      mp.set(hd, node.val);
+    } else mp.set(hd, node.val);
+
+    if(node.left) {
+      q.push([hd - 1, node.left ]);
+    } 
+
+    if (node.right) {
+      q.push([hd + 1, node.right]);
+    }
+  }
+
+  let res = [];
+  mp.forEach((val, key) => {
+    res.push(val);
+  }); 
+  
+  return res;
+}
 
 let root = new TreeNode(6);
 root = insertNode(root, 4);
@@ -77,3 +110,4 @@ root = insertNode(root, 8);
 
 // console.log(preorder(root));
 console.log(topView(root));
+console.log(bottomView(root));
