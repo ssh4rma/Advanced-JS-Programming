@@ -155,6 +155,39 @@ function leftView(root) {
 // }
 }
 
+//right view of binary tree
+
+function rightView(root) {
+  let res = [];
+  if(!root) return res;
+
+  const q = [];
+  q.push([root, 0]);
+
+  while(q.length > 0) {
+    let temp = q.shift();
+    let node = temp[0], level = temp[1];
+
+    if(res[level]) res[level].push(node.val);
+    else {
+      let t = [];
+      t.push(node.val);
+      res[level] = t;
+    }
+
+    if(node.left) q.push([node.left, level + 1]);
+    if(node.right) q.push([node.right, level + 1]);
+  } 
+
+  let rightRes = [];
+  for(let i = 0; i < res.length; ++i) {
+    let n = res[i].length;
+    rightRes.push(res[i][n-1]);
+  }
+
+  return rightRes;
+}
+
 let root = new TreeNode(6);
 root = insertNode(root, 4);
 root = insertNode(root, 5);
@@ -166,3 +199,4 @@ root = insertNode(root, 8);
 console.log(topView(root));
 console.log(bottomView(root));
 console.log(leftView(root));
+console.log(rightView(root));
