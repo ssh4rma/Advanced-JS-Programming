@@ -20,9 +20,9 @@ class Graph {
       let val = this.adjList.get(v);
       let res = "";
       for(let c of val) {
-        res += j + " ";
+        res += c + " ";
       }
-      console.log(i + " -> " + res);
+      console.log(v + " -> " + res);
     }
   }
 }
@@ -42,3 +42,5 @@ g.addEdge('D', 'E');
 g.addEdge('E', 'F');
 g.addEdge('E', 'C');
 g.addEdge('C', 'F');
+
+g.printGraph();
