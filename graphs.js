@@ -27,3 +27,18 @@ class Graph {
   }
 }
 
+const g = new Graph(6); 
+let vertices =  [ 'A', 'B', 'C', 'D', 'E', 'F' ];
+
+for(let i of vertices) {
+  g.addVertex(i);
+}
+
+g.addEdge('A', 'B');
+g.addEdge('A', 'D');
+g.addEdge('A', 'E');
+g.addEdge('B', 'C');
+g.addEdge('D', 'E');
+g.addEdge('E', 'F');
+g.addEdge('E', 'C');
+g.addEdge('C', 'F');
