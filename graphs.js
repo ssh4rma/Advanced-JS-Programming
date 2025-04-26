@@ -50,6 +50,22 @@ class Graph {
     }
   }
 
+
+  dfs(source) {
+    const vis = new Set();
+    this.helper(source, vis);
+  }
+
+  helper(node, vis) {
+    vis.add(node);
+    console.log(node);
+
+    const neighbour = this.adjList.get(node) || []; 
+
+    for(let ele of neighbour) {
+      if(!vis.has(ele)) this.helper(ele, vis); 
+    }
+  }
 }
 
 const g = new Graph(6); 
@@ -68,5 +84,6 @@ g.addEdge('E', 'F');
 g.addEdge('E', 'C');
 g.addEdge('C', 'F');
 
-g.printGraph();
-g.bfs('A');
+// g.printGraph();
+// g.bfs('A');
+g.dfs('A');
