@@ -25,6 +25,31 @@ class Graph {
       console.log(v + " -> " + res);
     }
   }
+
+  bfs(source) {
+    var vis = [];
+    var q = [];
+
+    vis[source] = true;
+    q.push(source); 
+
+    while(q.length > 0) {
+      var node = q.shift(); 
+      console.log(node);
+
+      var list = this.adjList.get(node);
+
+      for(let i in list) {
+        var neighbour = list[i];
+
+        if(!vis[neighbour]) {
+          vis[neighbour] = true;
+          q.push(neighbour);
+        }
+      }
+    }
+  }
+
 }
 
 const g = new Graph(6); 
@@ -44,3 +69,4 @@ g.addEdge('E', 'C');
 g.addEdge('C', 'F');
 
 g.printGraph();
+g.bfs('A');
