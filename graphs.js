@@ -4,5 +4,7 @@ class Graph {
     this.adjList = new Map();
   }
 
-  
+  addVertex(v) {
+    this.adjList.set(v, []);
+  }
 }
