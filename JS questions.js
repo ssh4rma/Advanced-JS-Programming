@@ -88,3 +88,8 @@ var addTwoPromises = async function(promise1, promise2) {
   let val2 = await promise2;
   return val1 + val2;
 };
+
+//async function that will sleeps for millis
+async function sleep(millis) {
+  await new Promise(resolve => setTimeout(resolve, millis)); 
+} 
