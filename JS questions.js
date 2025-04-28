@@ -123,3 +123,19 @@ Array.prototype.last = function() {
   if(n === 0) return -1; 
   return this[n-1];
 };
+
+
+//Implement Group by method
+Array.prototype.groupBy = function(fn) {
+  let res = {};
+  let n = this.length;
+  
+  for(let i = 0; i < n; ++i) {
+    let key = fn(this[i]);
+    if(!res[key]) {
+      res[key] = [];
+    }
+    res[key].push(this[i]);
+  }    
+  return res; 
+};
