@@ -93,3 +93,26 @@ var addTwoPromises = async function(promise1, promise2) {
 async function sleep(millis) {
   await new Promise(resolve => setTimeout(resolve, millis)); 
 } 
+
+//chunk array
+var chunk = function(arr, size) {
+  let n = arr.length;
+  if(size <= 0 || n === 0) return []; 
+
+  let res = []; 
+  let t = [];
+
+  for(let i = 0; i < n; ++i) {
+    t.push(arr[i]);
+
+    if(t.length === size) {
+      res.push(t);
+      t = [];
+    }
+  }
+
+  if(t.length > 0) 
+    res.push(t); 
+  
+  return res; 
+};
