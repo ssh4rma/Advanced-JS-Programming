@@ -81,3 +81,10 @@ function memoize(fn) {
     return res; 
   }
 }
+
+//Add 2 promise
+var addTwoPromises = async function(promise1, promise2) {
+  let val1 = await promise1;
+  let val2 = await promise2;
+  return val1 + val2;
+};
