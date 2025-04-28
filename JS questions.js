@@ -139,3 +139,21 @@ Array.prototype.groupBy = function(fn) {
   }    
   return res; 
 };
+
+//flatten the array (dynamic code) without using Array.flat() method
+
+var flat = function (arr, n) {
+  const st = [...arr.map(item => [item, n])]; 
+  const res = [];
+
+  while(st.length > 0) {
+    const [item, depth] = st.pop();
+
+    if(Array.isArray(item) && depth > 0) {
+      st.push(...item.map(subItem => [subItem, depth - 1])); 
+    } else {
+      res.push(item);
+    }
+  }
+  return res.reverse(); 
+};
