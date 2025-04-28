@@ -41,9 +41,14 @@ var createCounter = function(init) {
 var compose = function(functions) {
     
   return function(x) {
-      for(let i = functions.length - 1; i >= 0; --i) {
-          x = functions[i](x);
-      }
-      return x; 
+    for(let i = functions.length - 1; i >= 0; --i) {
+      x = functions[i](x);
+    }
+    return x; 
   }
+};
+
+//length of the args in the function argument
+var argumentsLength = function(...args) {
+  return args.length;
 };
