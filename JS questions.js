@@ -52,3 +52,17 @@ var compose = function(functions) {
 var argumentsLength = function(...args) {
   return args.length;
 };
+
+//Write a function to call a function at most once and after that it should only return undefined
+
+var once = function(fn) {
+  let i = 1;
+  return function(...args){
+    if(i === 1) {
+      i += 1; 
+      return fn(...args); 
+    }
+
+    return undefined; 
+  }
+};
