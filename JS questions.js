@@ -20,3 +20,19 @@ var expect = function(val) {
     }
   }
 };
+
+//counter function with increment, decrement and reset methods
+var createCounter = function(init) {
+  let value = init;
+  return {
+    increment : function() {
+      return value += 1;
+    },
+    decrement: function() {
+      return value -= 1;
+    }, 
+    reset: function() {
+      return value = init;
+    }
+  }
+};
