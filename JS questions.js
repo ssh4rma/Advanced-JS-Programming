@@ -66,3 +66,18 @@ var once = function(fn) {
     return undefined; 
   }
 };
+
+//Memoize a function
+function memoize(fn) {
+  const cache = new Map();
+  return function(...args) {
+    let key = JSON.stringify(args);
+    if(cache.has(key)) {
+      return cache.get(key);
+    }
+    
+    let res = fn(...args);
+    cache.set(key, res);
+    return res; 
+  }
+}
