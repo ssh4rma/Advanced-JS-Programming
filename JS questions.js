@@ -116,3 +116,10 @@ var chunk = function(arr, size) {
   
   return res; 
 };
+
+//Implement Array.prototype.last() method, and assume JSON.parse() is the array
+Array.prototype.last = function() {
+  let n = this.length;
+  if(n === 0) return -1; 
+  return this[n-1];
+};
