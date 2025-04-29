@@ -32,3 +32,10 @@ for(let key in obj) {
 
 obj2.name = 'Pete';
 console.log(obj2);
+
+//using Objects.assign() method
+let dest = {};
+Object.assign(dest, obj);
+console.log(dest);
+dest.name = 'Shubham';
+console.log(dest); 
