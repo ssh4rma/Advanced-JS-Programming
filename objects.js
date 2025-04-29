@@ -39,8 +39,26 @@ Object.assign(dest, obj);
 console.log(dest);
 dest.name = 'Shubham';
 console.log(dest); 
+console.log(obj);
 
 //using spread operator
 let dest2 = {...dest};
 dest2.name = 'Rajesh';
 console.log(dest2);
+
+let users = {
+  name: "John",
+  sizes: {
+    height: 182,
+    width: 50
+  }
+};
+
+let usr2 = {};
+Object.assign(usr2, users); 
+console.log(usr2); 
+
+//Here it's a shallow copy of users object, as I changed something in the new object the same entries are modified in the usr2.
+usr2.sizes.height = 190;
+console.log(usr2); 
+console.log(users); 
