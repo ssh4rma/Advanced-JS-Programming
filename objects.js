@@ -39,3 +39,8 @@ Object.assign(dest, obj);
 console.log(dest);
 dest.name = 'Shubham';
 console.log(dest); 
+
+//using spread operator
+let dest2 = {...dest};
+dest2.name = 'Rajesh';
+console.log(dest2);
