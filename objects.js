@@ -18,4 +18,17 @@ const user = {
 
 user.name = "Pete"; // (*)
 
-alert(user.name); // Pete
+//cloning the object 
+const obj = {
+  name: 'John',
+  age: 22
+};
+
+const obj2 = {};
+
+for(let key in obj) {
+  obj2[key] = obj[key];
+}
+
+obj2.name = 'Pete';
+console.log(obj2);
