@@ -62,3 +62,11 @@ console.log(usr2);
 usr2.sizes.height = 190;
 console.log(usr2); 
 console.log(users); 
+
+//Structured cloning (Deep cloning)
+
+let clone = structuredClone(users);
+console.log(clone); 
+clone.sizes.height = 200;
+console.log(clone); //200
+console.log(users); //190
