@@ -73,3 +73,9 @@ console.log(users); //190
 
 console.log(users.name == users); //false because users will be coerced to valueOf() and toString() method: then it will become [Object Object] and users.name is string (primitive data) so it will return false
 
+let userss = {};
+// let's create a circular reference:
+// user.me references the user itself
+userss.me = userss;
+console.log(userss.me); 
+let clone2 = structuredClone();
