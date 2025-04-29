@@ -70,3 +70,6 @@ console.log(clone);
 clone.sizes.height = 200;
 console.log(clone); //200
 console.log(users); //190
+
+console.log(users.name == users); //false because users will be coerced to valueOf() and toString() method: then it will become [Object Object] and users.name is string (primitive data) so it will return false
+
