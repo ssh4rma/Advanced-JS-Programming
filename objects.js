@@ -10,3 +10,12 @@ console.log(a == b); //true
 let c = {};
 let d = {}; 
 console.log(c > d); 
+
+//const objects
+const user = {
+  name: "John"
+};
+
+user.name = "Pete"; // (*)
+
+alert(user.name); // Pete
