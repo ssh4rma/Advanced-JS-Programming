@@ -4,3 +4,9 @@ let b = a;
 
 console.log(a === b); //true
 console.log(a == b); //true 
+
+
+//object comparision
+let c = {};
+let d = {}; 
+console.log(c > d); 
