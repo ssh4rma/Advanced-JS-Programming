@@ -79,3 +79,16 @@ let userss = {};
 userss.me = userss;
 console.log(userss.me); 
 let clone2 = structuredClone();
+
+
+let user = {
+  name: "John"
+};
+
+let admin = user;
+console.log(admin); 
+admin.name = 'shubham'; 
+console.log(admin); 
+console.log(user); 
+
+//Here admin is not copy of the user, it's a reference to the user, they both are pointing to the same object, and any changes made to the original object using the different alias (admin), it will also show in the original object. 
