@@ -22,9 +22,11 @@ Object.defineProperty(user, 'name', {
 
 
 user.name = 'rajesh';
-console.log(user.name); 
+console.log(user.name);   
 Object.defineProperty(user, 'name', {
   writable: false
 });
 let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
 console.log(descriptor); 
+
+//If there is only value in the descriptor then all the other things will be false
