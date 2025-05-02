@@ -19,3 +19,9 @@ async function fetchData() {
   console.log(data.body);
 }
 fetchData(); 
+
+//example of async function
+async function example() {
+  return 'hello user';
+}
+example().then((data) => console.log(data));
