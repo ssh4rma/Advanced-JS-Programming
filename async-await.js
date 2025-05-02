@@ -25,3 +25,13 @@ async function example() {
   return 'hello user';
 }
 example().then((data) => console.log(data));
+
+//error handling using Async await
+
+async function fetchData2() {
+  let res = await fetch("https://icanhazdadjoke.com/slack");
+  let data = await res.json(); 
+  console.log(data.attachments[0].fallback);
+}
+
+fetchData2(); 
