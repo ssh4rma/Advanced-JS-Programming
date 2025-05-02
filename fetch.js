@@ -16,4 +16,18 @@ async function getNews() {
   }
 }
 
-getNews();
+// getNews();
+
+
+//using promises
+fetch("https://icanhazdadjoke.com/slack")
+.then((res) => {
+  return res.json();
+})
+.then((data) => { 
+  var joke = data.attachments[0].fallback;
+  console.log(joke);
+})
+.catch((err) => {
+  console.log(err);
+});
