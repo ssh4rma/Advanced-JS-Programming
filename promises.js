@@ -13,3 +13,10 @@ let rejPromise = new Promise((res, rej) => {
 let rejPromise2 = new Promise((res, rej) => {
   setTimeout(() => rej(new Error ('error'), 1000));
 }).then(null, err => console.log(err));
+
+let resPromise = new Promise((res, rej) => {
+  const id = setInterval(() => {
+    console.log('Hello User');
+    clearInterval(id); 
+  }, 2000);
+}).then(res => console.log(res));
