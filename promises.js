@@ -23,3 +23,9 @@ let resPromise = new Promise((res, rej) => {
 })
 .then(res => console.log(res))
 .finally(() => console.log('Promise is settled'));
+
+let resPromise1 = new Promise((res, rej) => {
+  rej(new Error('Promise is rejected'));
+})
+.finally(() => console.log('Promise is ready'))
+.then(null, rej => console.log(rej)); 
