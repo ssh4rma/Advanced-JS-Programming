@@ -31,3 +31,15 @@ fetch("https://icanhazdadjoke.com/slack")
 .catch((err) => {
   console.log(err);
 });
+
+fetch(url)
+.then((res) => {
+  return res.json();
+})
+.then((data) => {
+  return data.articles.map(articles => articles.description);
+})
+.then((description) => {
+  console.log(description); 
+})
+.catch((err) => console.log(err));
