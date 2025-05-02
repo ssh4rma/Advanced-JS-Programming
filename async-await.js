@@ -12,3 +12,10 @@ async function helper() {
 }
 
 helper();
+
+//fetching data from url
+async function fetchData() {
+  const data = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  console.log(data.body);
+}
+fetchData(); 
