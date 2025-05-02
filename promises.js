@@ -6,6 +6,6 @@ let promise = new Promise((res, rej) => {
   error => console.log(error)
 )
 
-// let rejPromise = new Promise((res, rej) => {
-//   setTimeout(() => rej(new Error ('error'), 1000));
-// }).then(null, rej);
+let rejPromise = new Promise((res, rej) => {
+  setTimeout(() => rej(new Error ('error'), 1000));
+}).catch(err => console.log(err));
