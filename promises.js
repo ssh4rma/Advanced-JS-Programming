@@ -25,7 +25,7 @@ let resPromise = new Promise((res, rej) => {
 .finally(() => console.log('Promise is settled'));
 
 let resPromise1 = new Promise((res, rej) => {
-  rej(new Error('Promise is rejected'));
+  throw new Error('Promise is rejected');
 })
 .finally(() => console.log('Promise is ready'))
 .then(null, rej => console.log(rej)); 
