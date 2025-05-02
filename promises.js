@@ -8,4 +8,6 @@ promise.then(
 
 let rejPromise = new Promise((res, rej) => {
   setTimeout(() => rej(new Error ('error'), 1000));
-});
+}).then(
+  error => console.log(error)
+)
