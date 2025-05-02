@@ -18,5 +18,8 @@ let resPromise = new Promise((res, rej) => {
   const id = setInterval(() => {
     console.log('Hello User');
     clearInterval(id); 
+    res('Promise is resolved');
   }, 2000);
-}).then(res => console.log(res));
+})
+.then(res => console.log(res))
+.finally(() => console.log('Promise is settled'));
