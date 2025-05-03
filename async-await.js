@@ -7,7 +7,7 @@ f().then((res) => console.log(res));
 async function helper() {
   let pr = new Promise((res, rej) => {
     setTimeout(() => {
-      res('Promise resolved!');
+      rej(new Error ('Promise not resolved'));
     }, 1000);
   });
 
