@@ -3,3 +3,8 @@ async function f() {
 }
 
 f();
+
+let allP = [];
+Promise.all(allP)
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
