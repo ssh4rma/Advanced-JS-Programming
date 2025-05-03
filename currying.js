@@ -6,3 +6,7 @@ function add(a) {
 
 let res = add(5);
 console.log(res(4));
+
+
+const add2 = (a) => (b) => a + b;
+console.log(add2(5)(4));
