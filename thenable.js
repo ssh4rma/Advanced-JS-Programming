@@ -9,3 +9,8 @@ const helper = {
 Promise.resolve(helper)
   .then(res => console.log(res))
   .catch(err => console.log(err));
+
+(async () => {
+  const res = await helper;
+  console.log(res); 
+})();
