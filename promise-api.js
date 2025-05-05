@@ -27,7 +27,7 @@ Promise.all([
   new Promise(resolve => setTimeout(() => resolve(3), 1000))  // 3
 ]).then(res => console.log(res)); 
 
-let urls = [
+var urls = [
   'https://api.github.com/users/iliakan',
   'https://api.github.com/users/remy',
   'https://api.github.com/users/jeresig'
@@ -37,3 +37,23 @@ let request = urls.map((url) => fetch(url));
 
 Promise.all(request)
   .then((res) => res.forEach(res => console.log(`${res.url}: ${res.status}`)));
+
+//Example for Promise.allSettled
+
+urls = [
+  'https://api.github.com/users/iliakan',
+  'https://api.github.com/users/remy',
+  'https://no-such-url'
+];
+
+Promise.allSettled(urls.map((url) => fetch(url)))
+  .then((res) =>  {
+    res.forEach((status, num) => {
+      if(status === 'fulfilled') {
+        console.log(`${urls[num]}: ${result.value.status}`);
+      } 
+      if(status === 'rejected') {
+        console.log(`${urls[num]}: ${result.reason}`);
+      }
+    })
+  })
