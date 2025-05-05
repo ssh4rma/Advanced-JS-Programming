@@ -26,3 +26,14 @@ Promise.all([
   new Promise(resolve => setTimeout(() => resolve(2), 2000)), // 2
   new Promise(resolve => setTimeout(() => resolve(3), 1000))  // 3
 ]).then(res => console.log(res)); 
+
+let urls = [
+  'https://api.github.com/users/iliakan',
+  'https://api.github.com/users/remy',
+  'https://api.github.com/users/jeresig'
+];
+
+let request = urls.map((url) => fetch(url));
+
+Promise.all(request)
+  .then((res) => res.forEach(res => console.log(`${res.url}: ${res.status}`)));
