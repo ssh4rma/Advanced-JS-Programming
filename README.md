@@ -1,4 +1,4 @@
-# Data Structures, Algorithms & Advanced JavaScript (Sprint)
+# Advanced JS Programming
 
 ## Overview
 
