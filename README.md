@@ -25,19 +25,14 @@ This sprint was divided into two major segments:
   - Searching: Linear Search, Binary Search
   - Graph Traversal: BFS (Breadth-First Search), DFS (Depth-First Search)
 
-- Used both **structured and unstructured data** to simulate real-world problem-solving.
-
-- Applied **design principles** and code modularity across use cases.
-
 ---
 
 ## Part 2: Object-Oriented & Advanced JavaScript
 
 ### OOP Concepts
 
-- Objects, Classes, Constructors, and Object references
+- Objects, Classes, Constructors
 - `this` keyword usage and constructor behavior
-- Object methods and conversions (object to primitive)
 - Property descriptors, flags, getters/setters
 - Prototypes, class inheritance, and extending native prototypes
 - Usage of `__proto__`, classes without prototype inheritance
@@ -50,10 +45,3 @@ This sprint was divided into two major segments:
 - Promisification of callback-based functions
 - `async/await` syntax and use cases
 - Async iteration and generators
-
-### Additional Concepts
-
-- Currying
-- Hoisting
-- Callbacks vs Promises
-- Microtasks vs Macrotasks
